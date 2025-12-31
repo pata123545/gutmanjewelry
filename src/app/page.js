@@ -1,6 +1,6 @@
 import { supabase } from '@/lib/supabase';
-import Carousel from './components/hero/Carousel';
 import Categories from './components/categories/Categories';
+import Carousel from './components/hero/Carousel';
 
 
 export default async function Home() {
@@ -14,17 +14,12 @@ export default async function Home() {
   }
 
   return (
-    <main style={{
-      width: '100%',
-      maxWidth: '1900px', // במחשב ובאייפד זה לא יימרח מדי
-      margin: '0 auto',   // מרכז את האתר
-      padding: '20px',    // מרווח מהצדדים בטלפון
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
+    
+    <main className="w-full mx-auto px-5 md:px-8 pt-[120px]  pb-10 relative">
       <Carousel />
+      <section className="max-w-[1300px] bg-[#f7f7f7] mx-auto px-6 md:px-12 py-25">
       <Categories />
+      </section>
       
     </main>
   );

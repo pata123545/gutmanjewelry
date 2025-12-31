@@ -24,7 +24,7 @@ export default async function CategoryPage({ params }) {
   if (prodError) console.error("Database Error:", prodError.message);
 
   return (
-    <main className="min-h-screen bg-white pb-32" dir="rtl">
+    <main className="min-h-screen pb-32" dir="rtl">
       {/* Header יוקרתי */}
       <header className="pt-40 pb-20 text-center">
         <div className="max-w-screen-xl mx-auto px-4">
@@ -42,7 +42,7 @@ export default async function CategoryPage({ params }) {
       <div className="max-w-[1200px] mx-auto px-6">
         {!products || products.length === 0 ? (
           <div className="text-center py-20 border-t border-gray-50">
-            <p className="text-gray-400 font-serif italic text-sm tracking-widest">
+            <p className="text-gray-400 font-serif text-sm tracking-widest">
               כרגע לא נמצאו פריטים בקולקציית {category.name}
             </p>
             <p className="text-[10px] mt-4 text-gray-300">
@@ -54,7 +54,7 @@ export default async function CategoryPage({ params }) {
             {products.map((product) => (
               <Link href={`/product/${product.id}`} key={product.id} className="group flex flex-col items-center">
                 {/* קונטיינר תמונה קטן ויוקרתי */}
-                <div className="relative aspect-square w-full max-w-[150px] mx-auto bg-white overflow-hidden">
+                <div className="relative aspect-square w-full max-w-[100px] mx-auto bg-white overflow-hidden">
                   <Image
                     src={product.image_url || '/placeholder.png'} 
                     alt={product.name}
