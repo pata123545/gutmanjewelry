@@ -1,28 +1,38 @@
 "use client";
-import Image from 'next/image';
-import Link from 'next/link';
+import React from 'react';
+import NextImage from 'next/image';
 
-const ProductCard = ({ product, priority = false }) => {
+const ProductCard = ({ product }) => {
+  if (!product) return null;
+
   return (
-    <Link href={`/product/${product.id}`} className="group block w-full mb-10" dir="rtl">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100">
-        <Image
-          src={product.image_url}
-          alt={product.title}
-          fill
-          priority={priority}
-         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
-      <div className="text-right space-y-1">
-        <h3 className="text-[10px] uppercase tracking-[0.4em] text-gray-900 font-light group-hover:text-[#cbad73] transition-colors">
-          {product.title}
+    <div className="relative w-full h-full group overflow-hidden bg-neutral-200">
+      {/* תמונה שממלאת את כל שטח הכרטיס */}
+      <NextImage
+        src={product.image_url || product.image || '/placeholder.jpg'}
+        alt={product.name || "Jewelry"}
+        fill
+        priority
+        className="object-cover transition-transform duration-[2.5s] ease-out group-hover:scale-110"
+      />
+
+      {/* שכבת הצללה דקה כדי שהטקסט יבלוט */}
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-700" />
+      
+      {/* טקסט שצף על התמונה - נקי ויוקרתי */}
+      <div className="absolute bottom-16 left-12 text-white z-20">
+        <h3 className="text-[28px] md:text-[40px] tracking-[0.2em] font-extralight uppercase">
+          {product.name}
         </h3>
-        <p className="text-[11px] font-serif italic text-gray-400">
-          ₪{Number(product.price).toLocaleString()}
+        <p className="text-[20px] md:text-[24px] mt-2 font-light opacity-90">
+          ₪{product.price}
         </p>
+        
+        <button className="mt-8 border border-white/50 bg-white/10 backdrop-blur-md px-10 py-4 text-[11px] tracking-[0.4em] uppercase hover:bg-white hover:text-black transition-all duration-500">
+          Explore +
+        </button>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -1,0 +1,55 @@
+{
+"Header": {
+    "freeShipping": "FREE SHIPPING ON ORDERS OVER ₪299",
+    "new": "NEW",
+    "jewelry": "JEWELRY",
+    "bestSellers": "BEST SELLERS",
+    "collections": "COLLECTIONS",
+    "gold14k": "14K GOLD",
+    "gifts": "GIFTS",
+    "lastChance": "LAST CHANCE",
+    "earrings": "Earrings",
+    "necklaces": "Necklaces",
+    "rings": "Rings",
+    "bracelets": "Bracelets",
+    "trending": "Trending",
+    "byMaterial": "By Material",
+    "giftIdeas": "Gift Ideas",
+    "byBudget": "By Budget",
+    "accessories": "Accessories",
+    "promoEngraving": "Engraved Jewelry",
+    "promoCharms": "Design Your Charm",
+    "promoBridal": "Bridal Collection"
+  },
+    "Partners": {
+      "title": "Our Partners",
+      "description": "We work with the world's leading brands"
+    },
+    "Categories": {
+    "subtitle": "Curated Selections",
+    "title": "Our Collections",
+    "explore": "Explore",
+    "imagePending": "Image Pending"
+  },
+  "FeaturedCollections": {
+    "evening": "EVENING COLLECTION",
+    "engagement": "ENGAGEMENT RINGS",
+    "daily": "DAILY MINIMALISM",
+    "viewCollection": "VIEW COLLECTION"
+  },
+"Hero": {
+    "introducing": "GUTMAN JEWELRY",
+    "mainTitle": "GUTMAN CLASSICS",
+    "leftCard": {
+      "subtitle": "ARTISAN CRAFT",
+      "title": "CHARM",
+      "desc": "Bespoke Jewelry",
+      "button": "START DESIGNING"
+    },
+    "rightCard": {
+      "subtitle": "PERSONALIZED",
+      "title": "CUSTOM ENGRAVED",
+      "button": "EXPLORE NOW"
+    }
+  }
+}

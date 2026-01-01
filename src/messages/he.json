@@ -1,0 +1,57 @@
+{
+"Header": {
+    "freeShipping": "משלוח חינם בקנייה מעל 299 ש״ח",
+    "new": "NEW",
+    "jewelry": "תכשיטים",
+    "bestSellers": "BEST SELLERS",
+    "collections": "קולקציות",
+    "gold14k": "זהב 14K",
+    "gifts": "מתנות",
+    "lastChance": "Last Chance",
+    "earrings": "עגילים",
+    "necklaces": "שרשראות",
+    "rings": "טבעות",
+    "bracelets": "צמידים",
+    "trending": "טרנדי",
+    "byMaterial": "לפי חומר",
+    "giftIdeas": "רעיונות למתנות",
+    "byBudget": "לפי תקציב",
+    "accessories": "אקססוריז",
+    "promoEngraving": "תכשיטי חריטה",
+    "promoCharms": "עצבי תכשיט צ'ארם אישי",
+    "promoBridal": "תכשיטי כלה"
+  },
+  "Partners": {
+    "title": "השותפים שלנו",
+    "description": "אנחנו עובדים עם המותגים המובילים בעולם"
+  },
+  "Categories": {
+    "subtitle": "Curated Selections",
+    "title": "הקולקציות שלנו",
+    "explore": "גלו עוד",
+    "imagePending": "תמונה בקרוב"
+  },
+  "FeaturedCollections": {
+    "evening": "קולקציית ערב",
+    "engagement": "טבעות אירוסין",
+    "daily": "מינימליזם יומיומי",
+    "viewCollection": "לצפייה בקולקציה"
+  },
+"Hero": {
+    "introducing": "GUTMAN JEWELRY",
+    "mainTitle": "GUTMAN CLASSICS",
+    "leftCard": {
+      "subtitle": "DESIGN YOUR OWN",
+      "title": "CHARM",
+      "desc": "Jewelry",
+      "button": "START DESIGNING"
+    },
+    "rightCard": {
+      "subtitle": "PERSONALIZED",
+      "title": "CUSTOM ENGRAVED",
+      "button": "SHOP NOW"
+    }
+  }
+}
+
+

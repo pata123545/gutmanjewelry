@@ -27,7 +27,7 @@ const Carousel = ({ autoSlide = true, autoSlideInterval = 5000 }) => {
   }, [autoSlide, autoSlideInterval, next]);
   
   return (
-    <section className="w-full max-w-[1905px] pt-15 mx-auto relative overflow-hidden bg-[#E5E1DA]" dir="rtl">
+    <section className="w-full max-w-[1905px] pt-10 mx-auto  relative overflow-hidden" dir="rtl">
       
       {/* Container הסליידים - גובה דסקטופ 523px */}
       <div 

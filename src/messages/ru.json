@@ -1,0 +1,55 @@
+{
+"Header": {
+    "freeShipping": "БЕСПЛАТНАЯ ДОСТАВКА ПРИ ЗАКАЗЕ ОТ ₪299",
+    "new": "NEW",
+    "jewelry": "УКРАШЕНИЯ",
+    "bestSellers": "BEST SELLERS",
+    "collections": "КОЛЛЕКЦИИ",
+    "gold14k": "ЗОЛОТО 14K",
+    "gifts": "ПОДАРКИ",
+    "lastChance": "LAST CHANCE",
+    "earrings": "Серьги",
+    "necklaces": "Ожерелья",
+    "rings": "Кольца",
+    "bracelets": "Браслеты",
+    "trending": "Тренды",
+    "byMaterial": "По материалу",
+    "giftIdeas": "Идеи для подарков",
+    "byBudget": "По бюджету",
+    "accessories": "Аксессуары",
+    "promoEngraving": "Гравировка",
+    "promoCharms": "Ваш личный шарм",
+    "promoBridal": "Для невест"
+  },
+    "Partners": {
+        "title": "Наши Партнеры",
+        "description": "Мы сотрудничаем с ведущими мировыми брендами"
+      },
+    "Categories": {
+    "subtitle": "Избранные коллекции",
+    "title": "Наши Коллекции",
+    "explore": "Подробнее",
+    "imagePending": "Изображение ожидается"
+  },
+  "FeaturedCollections": {
+    "evening": "ВЕЧЕРНЯЯ КОЛЛЕКЦИЯ",
+    "engagement": "ПОМОЛВОЧНЫЕ КОЛЬЦА",
+    "daily": "ЕЖЕДНЕВНЫЙ МИНИМАЛИЗМ",
+    "viewCollection": "СМОТРЕТЬ КОЛЛЕКЦИЮ"
+  },
+"Hero": {
+    "introducing": "GUTMAN JEWELRY",
+    "mainTitle": "GUTMAN CLASSICS",
+    "leftCard": {
+      "subtitle": "ИСКУССТВО ДИЗАЙНА",
+      "title": "CHARM",
+      "desc": "Ваше уникальное украшение",
+      "button": "СОЗДАТЬ СВОЁ"
+    },
+    "rightCard": {
+      "subtitle": "ИНДИВИДУАЛЬНОСТЬ",
+      "title": "ГРАВИРОВКА",
+      "button": "В КАТАЛОГ"
+    }
+  }
+}

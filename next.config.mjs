@@ -1,15 +1,22 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+// הוספנו את הנתיב המפורש לקובץ ה-request
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.js');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
+ images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'afhhrnpwfmtderonxfhl.supabase.co',
-        port: '',
-        pathname: '/storage/v1/object/public/**',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co', // מאשר את כל הפרויקטים של סופבייס
       },
     ],
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
