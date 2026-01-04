@@ -18,7 +18,7 @@ const ProductGrid = ({ products }) => {
               <Link href={`/product/${product.id}`} className="flex flex-col">
                 
                 {/* 1. קונטיינר התמונה - נקי עם מרחב נשימה */}
-                <div className="relative aspect-[4/5] w-full bg-[#fcfcfc] overflow-hidden flex items-center justify-center transition-colors duration-500 group-hover:bg-[#f7f7f7]">
+                <div className="relative aspect-[4/5] w-full bg-white shadow-lg overflow-hidden flex items-center justify-center transition-colors duration-500 group-hover:bg-[#f7f7f7]">
                   <img
                     src={product.image_url}
                     alt={product.title}
@@ -27,7 +27,7 @@ const ProductGrid = ({ products }) => {
                   />
                   
                   {/* פס זהב דק שמופיע בתחתית התמונה במעבר עכבר */}
-                  <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#ead690] transition-all duration-700 group-hover:w-full"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-[1.5px] shadow-lg bg-[#ead690] transition-all duration-700 group-hover:w-full"></div>
                 </div>
 
                 {/* 2. פרטי המוצר - טיפוגרפיה מינימליסטית */}

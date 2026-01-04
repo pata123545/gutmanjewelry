@@ -1,5 +1,5 @@
 {
-"Header": {
+  "Header": {
     "freeShipping": "FREE SHIPPING ON ORDERS OVER ₪299",
     "new": "NEW",
     "jewelry": "JEWELRY",
@@ -21,11 +21,11 @@
     "promoCharms": "Design Your Charm",
     "promoBridal": "Bridal Collection"
   },
-    "Partners": {
-      "title": "Our Partners",
-      "description": "We work with the world's leading brands"
-    },
-    "Categories": {
+  "Partners": {
+    "title": "Our Partners",
+    "description": "We work with the world's leading brands"
+  },
+  "Categories": {
     "subtitle": "Curated Selections",
     "title": "Our Collections",
     "explore": "Explore",
@@ -37,7 +37,7 @@
     "daily": "DAILY MINIMALISM",
     "viewCollection": "VIEW COLLECTION"
   },
-"Hero": {
+  "Hero": {
     "introducing": "GUTMAN JEWELRY",
     "mainTitle": "GUTMAN CLASSICS",
     "leftCard": {
@@ -51,5 +51,55 @@
       "title": "CUSTOM ENGRAVED",
       "button": "EXPLORE NOW"
     }
+  },
+"NewArrivals": {
+  "subtitle": "The New Collection",
+  "title": "New Arrivals",
+  "currency": "₪",
+  "shopNow": "Shop Now"
+},
+
+ "BestSellers": {
+  "label": "The Selection",
+  "title": "Best Sellers",
+  "currency": "₪"
+},
+
+"VisitStore": {
+  "title": "Visit Us In Store",
+  "description": "Come and discover our new collections up close and enjoy a personal shopping experience. Our team will be happy to help you choose the perfect jewelry and provide professional styling advice at our flagship stores.",
+  "button": "Our Stores"
+},
+
+"Editorial": {
+  "since": "Since 2024",
+  "title": "Art of Precision <br /> & Timeless Sparkle",
+  "description": "Every piece at Gutman is crafted with the small moments that turn into big memories in mind. We combine traditional goldsmithing techniques with uncompromising modern design.",
+  "button": "Discover Our Story"
+},
+
+"Footer": {
+    "stayConnected": "Stay Connected",
+    "newsletterTitle": "Join the World of Gutman",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "aboutText": "Bespoke luxury jewelry. Every piece is a story of art, emotion, and uncompromising precision.",
+    "collections": "Collections",
+    "customerService": "Customer Service",
+    "followUs": "Follow Us",
+    "terms": "Terms of Use",
+    "accessibility": "Accessibility Statement",
+    "rights": "© 2026 GUTMAN JEWELRY. ALL RIGHTS RESERVED.",
+    "new": "New Arrivals",
+    "jewelry": "Jewelry",
+    "bestSellers": "Best Sellers",
+    "gold14k": "14K Gold",
+    "gifts": "Gifts",
+    "lastChance": "Last Chance",
+    "serv1": "Care Guide",
+    "serv2": "Shipping & Returns",
+    "serv3": "Private Appointment",
+    "serv4": "Contact Us"
   }
 }
+

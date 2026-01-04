@@ -13,7 +13,7 @@ const HeroHeader = () => {
         </span>
         
         {/* הכותרת המרכזית הגדולה */}
-        <h1 className="text-3xl md:text-6xl font-serif tracking-[0.15em] text-[#1A1A1A] font-light italic leading-tight">
+        <h1 className="text-1xl md:text-5xl font-serif tracking-[0.15em] text-[#1A1A1A] font-light  leading-tight">
           {t('mainTitle')}
         </h1>
         

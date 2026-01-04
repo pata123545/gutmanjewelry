@@ -5,13 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ShoppingBag, Search, User, Heart, X, Menu, ChevronDown } from 'lucide-react';
-import { logo } from '../../../assets/index';
 import { useTranslations, useLocale } from 'next-intl';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [activeDrawer, setActiveDrawer] = useState(null);
   
   const t = useTranslations('Header');
   const locale = useLocale();
@@ -20,7 +18,9 @@ const Header = () => {
   const isRTL = locale === 'he';
   const langRef = useRef(null);
 
-  // סגירת דרופדאון שפות בלחיצה בחוץ
+  // כתובת הלוגו מסופבייס (החלף בקישור הציבורי האמיתי שלך)
+  const logoUrl = "https://afhhrnpwfmtderonxfhl.supabase.co/storage/v1/object/public/logo/Gutman%20Jewelry.png";
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (langRef.current && !langRef.current.contains(event.target)) {
@@ -38,52 +38,13 @@ const Header = () => {
     setIsLangOpen(false);
   };
 
-  // מבנה ניווט עם תרגומים דינמיים
   const navItems = [
     { name: t('new'), slug: 'new' },
-    { 
-      name: t('jewelry'), 
-      id: 'jewelry',
-      columns: [
-        { title: 'עגילים', items: ['כל העגילים', 'עגילי חישוק', 'עגילים צמודים', 'עגילים תלויים', 'עגילי זהב 14K'] },
-        { title: 'שרשראות', items: ['כל השרשראות', 'שרשראות קצרות', 'שרשראות ארוכות', 'שרשראות שכבות', 'שרשראות בחריטה אישית', "שרשראות צ'ארמס", 'שרשראות זהב 14K'] },
-        { title: 'טבעות', items: ['כל הטבעות', 'טבעות בציפוי זהב/כסף', 'טבעות בחריטה אישית', 'טבעות זהב 14K'] },
-        { title: 'צמידים', items: ['כל הצמידים', 'צמידים עדינים', 'צמידים קשיחים', 'צמידי רגל', 'צמידים בחריטה אישית', "צמידי צ'ארמס", 'צמידי זהב 14K'] },
-      ],
-      promos: [
-        { title: "תכשיטי חריטה", img: "/images/engraving.jpg" },
-        { title: "עצבי תכשיט צ'ארם אישי", img: "/images/charms.jpg" }
-      ]
-    },
+    { name: t('jewelry'), id: 'jewelry' },
     { name: t('bestSellers'), slug: 'best-sellers' },
-    { 
-      name: t('collections'), 
-      id: 'collections',
-      columns: [
-        { title: 'טרנדי', items: ["תכשיטי צ'ארמס", 'Mix & Match', 'תכשיטי חריטה', 'פנינים', 'תכשיטי פרחים', 'עגילי סטייטמנט', 'כל הקולקציות'] },
-        { title: 'קולקציות', items: ['Vintage Glam', 'Coastal Vibes', 'Israel At Heart', 'Elements', 'The Fine Line', 'Beginnings', 'Mystic Eye', 'כל הקולקציות'] },
-        { title: 'לפי חומר', items: ['תכשיטים בציפוי', 'זהב 14K', 'תכשיטי כסף 925', 'תכשיטי יהלומים', 'פנינים', 'אבני חן וחרוזים'] },
-      ],
-      promos: [{ title: "תכשיטי כלה", img: "/images/bridal.jpg" }]
-    },
-    { 
-      name: t('gold14k'), 
-      id: 'gold',
-      columns: [
-        { title: 'זהב 14K', items: ['עגילי זהב 14K', 'שרשראות זהב 14K', 'צמידי זהב 14K', 'טבעות זהב 14K', 'תכשיטי חריטה 14K'] },
-        { title: 'לפי חומר', items: ['תכשיטי כסף 925', 'תכשיטי יהלומים', 'טבעות זהב 14-18K'] },
-      ],
-      promos: [{ title: "חריטה בזהב 14K", img: "/images/gold-engraving.jpg" }]
-    },
-    { 
-      name: t('gifts'), 
-      id: 'gifts',
-      columns: [
-        { title: 'רעיונות למתנות', items: ['המתנות הפופולריות', 'תכשיטי לבבות', 'מתנות לנערות', 'מתנות למורות ולגננות', 'לכל ההצעות שלנו'] },
-        { title: 'לפי תקציב', items: ['עד 100 ש״ח', 'עד 200 ש״ח', 'עד 300 ש״ח', 'עד 500 ש״ח'] },
-        { title: 'אקססוריז', items: ['מוצרי נייר', 'כרטיסי ברכה', 'אחסון וארגון תכשיטים', 'גיפט קארד'] },
-      ]
-    },
+    { name: t('collections'), id: 'collections' },
+    { name: t('gold14k'), id: 'gold' },
+    { name: t('gifts'), id: 'gifts' },
     { name: t('lastChance'), slug: 'last-chance' },
   ];
 
@@ -95,7 +56,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full fixed top-0 z-[100] bg-white border-b border-gray-100 text-black" dir="ltr">
+      <header className="w-full fixed top-0 z-[100] bg-[#0D0D0D]  border-b border-gray-100 text-black" dir="ltr">
         {/* Announcement Bar */}
         <div className="w-full bg-[#d4c5b3] h-8 flex items-center justify-center">
           <span className="text-[12px] tracking-[0.4em] uppercase font-light">
@@ -105,12 +66,25 @@ const Header = () => {
 
         <div className="max-w-[1800px] mx-auto px-8 lg:px-12 h-20 flex items-center justify-between relative">
           
+          {/* Logo Section */}
           <div className="flex-1 flex justify-start">
-            <Link href={`/${locale}`} className="relative h-40 w-40 transition-transform hover:scale-105">
-              <Image src={logo} alt="Gutman" fill className="object-contain object-left brightness-0" priority />
+            <Link href={`/${locale}`} className="relative h-20 w-20 transition-transform">
+              <img 
+                src={logoUrl}
+                alt="Gutman Jewelry"
+                className="object-contain"
+                style={{ 
+                  display: 'block',
+                  width: 'auto',
+                  height: '80px',
+                  maxWidth: 'none',
+                  minHeight: '80px'
+                }} 
+/>
             </Link>
           </div>
 
+          {/* Navigation */}
           <nav className="hidden lg:flex flex-[3] justify-center h-full">
             <ul className="flex gap-8 h-full items-center">
               {navItems.map((item) => (
@@ -122,22 +96,22 @@ const Header = () => {
                 >
                   <Link 
                     href={item.slug ? `/${locale}/${item.slug}` : "#"}
-                    className={`text-[11px] uppercase tracking-[0.2em] transition-colors hover:text-[#cbad73] ${item.name === t('lastChance') ? 'text-red-700' : 'text-black'}`}
+                    className={`text-[13px] uppercase tracking-[0.2em] transition-colors hover:bg-gradient-to-r hover:from-[#BF953F] hover:via-[#FCF6BA] hover:to-[#AA771C] hover:bg-clip-text hover:text-transparent transition-all duration-500 ${item.slug === 'last-chance' ? 'bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent font-bold' : 'text-white'}`}
                   >
                     {item.name}
                   </Link>
-                  <span className={`absolute bottom-5 left-0 h-[1.5px] bg-black transition-all duration-300 ${activeMenu === item.id ? 'w-full' : 'w-0'}`} />
+                  <span className={`absolute bottom-5 left-0 h-[1.5px] bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent transition-all duration-300 ${activeMenu === item.id ? 'w-full' : 'w-0'}`} />
                 </li>
               ))}
             </ul>
           </nav>
 
+          {/* Actions & Languages */}
           <div className="flex-1 flex items-center justify-end gap-6">
-            {/* Language Dropdown */}
             <div className="relative" ref={langRef}>
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase hover:text-[#cbad73] transition-colors"
+                className="flex items-center gap-1.5 text-[10px] text-white tracking-widest uppercase hover:text-[#cbad73] transition-colors"
               >
                 <span>{locale}</span>
                 <ChevronDown size={12} className={`transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
@@ -160,19 +134,16 @@ const Header = () => {
             </div>
 
             <div className="flex items-center gap-5 border-l border-gray-100 pl-6">
-              <button className="hover:text-[#cbad73] transition-colors"><Search size={19} strokeWidth={1.2}/></button>
-              <button className="hover:text-[#cbad73] transition-colors"><Heart size={19} strokeWidth={1.2}/></button>
-              <button className="hidden md:block hover:text-[#cbad73] transition-colors"><User size={19} strokeWidth={1.2}/></button>
-              <button className="relative hover:text-[#cbad73] transition-colors">
-                <ShoppingBag size={19} strokeWidth={1.2}/>
-                <span className="absolute -top-1.5 -right-2 bg-black text-white text-[7px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+              <button className="hover:text-[#cbad73] text-white transition-colors"><Search size={20} strokeWidth={1.2}/></button>
+              <button className="hover:text-[#cbad73] text-white transition-colors"><Heart size={20} strokeWidth={1.2}/></button>
+              <button className="hidden md:block hover:text-[#cbad73] text-white transition-colors"><User size={20} strokeWidth={1.2}/></button>
+              <button className="relative hover:text-[#cbad73] text-white transition-colors">
+                <ShoppingBag size={20} strokeWidth={1.2}/>
+                <span className="absolute -top-1.5 -right-2 bg-red-500  text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-normal">0</span>
               </button>
             </div>
           </div>
         </div>
-
-        {/* Mega Menu logic remains the same but uses the item objects from navItems */}
-        {/* ... (Mega Menu JSX) */}
       </header>
     </>
   );

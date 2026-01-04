@@ -1,5 +1,5 @@
 {
-"Header": {
+  "Header": {
     "freeShipping": "משלוח חינם בקנייה מעל 299 ש״ח",
     "new": "NEW",
     "jewelry": "תכשיטים",
@@ -37,21 +37,68 @@
     "daily": "מינימליזם יומיומי",
     "viewCollection": "לצפייה בקולקציה"
   },
-"Hero": {
+  "Hero": {
     "introducing": "GUTMAN JEWELRY",
     "mainTitle": "GUTMAN CLASSICS",
     "leftCard": {
-      "subtitle": "DESIGN YOUR OWN",
+      "subtitle": "עצב בעצמך",
       "title": "CHARM",
-      "desc": "Jewelry",
-      "button": "START DESIGNING"
+      "desc": "תכשיטים",
+      "button": "התחל לעצב"
     },
     "rightCard": {
-      "subtitle": "PERSONALIZED",
-      "title": "CUSTOM ENGRAVED",
-      "button": "SHOP NOW"
+      "subtitle": "מותאם אישית",
+      "title": "חריטה בהתאמה אישית",
+      "button": "קנה עכשיו"
     }
+  },
+"NewArrivals": {
+  "subtitle": "הקולקציה החדשה",
+  "title": "נחיתות אחרונות",
+  "currency": "₪",
+  "shopNow": "צפייה במוצר"
+},
+
+ "BestSellers": {
+  "label": "הבחירה שלנו",
+  "title": "הנבחרים שלנו",
+  "currency": "₪"
+},
+
+"VisitStore": {
+  "title": "בקרו אותנו בחנות",
+  "description": "בואי להכיר מקרוב את הקולקציות החדשות שלנו ולהנות מחוויית קנייה אישית. הצוות שלנו ישמח לעזור לך לבחור את התכשיט המושלם עבורך ולתת לך ייעוץ סטיילינג מקצועי בחנויות הדגל שלנו.",
+  "button": "החנויות שלנו"
+},
+
+"Editorial": {
+  "since": "מאז 2024",
+  "title": "אמנות של דיוק <br /> וניצוץ נצחי",
+  "description": "כל תכשיט ב-Gutman מעוצב מתוך מחשבה על הרגעים הקטנים שהופכים לזיכרונות גדולים. אנחנו משלבים טכניקות צורפות מסורתיות עם עיצוב מודרני וחסר פשרות.",
+  "button": "גלי את הסיפור שלנו"
+},
+
+"Footer": {
+    "stayConnected": "הישארי מעודכנת",
+    "newsletterTitle": "הצטרפי לעולם של Gutman",
+    "emailPlaceholder": "כתובת האימייל שלך",
+    "subscribe": "הצטרפות",
+    "aboutText": "תכשיטי יוקרה בעיצוב אישי. כל פריט הוא סיפור של אמנות, רגש ודיוק חסר פשרות.",
+    "collections": "קולקציות",
+    "customerService": "שירות לקוחות",
+    "followUs": "עקבו אחרינו",
+    "terms": "תקנון האתר",
+    "accessibility": "הצהרת נגישות",
+    "rights": "© 2026 GUTMAN JEWELRY. כל הזכויות שמורות.",
+    "new": "חדש באתר",
+    "jewelry": "תכשיטים",
+    "bestSellers": "הנמכרים ביותר",
+    "gold14k": "זהב 14K",
+    "gifts": "מתנות",
+    "lastChance": "הזדמנות אחרונה",
+    "serv1": "מדריך טיפול",
+    "serv2": "משלוחים והחזרות",
+    "serv3": "פגישה אישית",
+    "serv4": "צור קשר"
   }
 }
-
-

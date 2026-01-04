@@ -1,8 +1,10 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Header from '../components/header/Header';
+import Footer from '../components/Footer';
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../app/globals.css";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +38,8 @@ export default async function RootLayout({ children, params }) {
           <main>
             {children}
           </main>
+          <Footer />
         </NextIntlClientProvider>
-
       </body>
     </html>
   );

@@ -8,9 +8,9 @@ const FeaturedCollections = () => {
   const locale = useLocale();
 
   const collections = [
-    { title: t('evening'), image: '/images/evening.jpg', link: 'evening' },
-    { title: t('engagement'), image: '/images/engagement.jpg', link: 'engagement' },
-    { title: t('daily'), image: '/images/daily.jpg', link: 'daily' },
+    { title: t('evening'), image: 'https://afhhrnpwfmtderonxfhl.supabase.co/storage/v1/object/public/engagement/596713374_122192763362542518_4270168330234204138.jpg', link: 'evening' },
+    { title: t('engagement'), image: 'https://afhhrnpwfmtderonxfhl.supabase.co/storage/v1/object/public/engagement/596713374_122192763362542518_4270168330234204138.jpg', link: 'engagement' },
+    { title: t('daily'), image: 'https://afhhrnpwfmtderonxfhl.supabase.co/storage/v1/object/public/engagement/596713374_122192763362542518_4270168330234204138.jpg', link: 'daily' },
   ];
 
   const isRTL = locale === 'he';

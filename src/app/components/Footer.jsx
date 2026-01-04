@@ -1,78 +1,117 @@
+"use client";
 import React from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('Footer');
+  const locale = useLocale();
+  const isRtl = locale === 'he';
+
+  // המערך שהגדרת, מוטמע בתוך הקומפוננטה
+  const navigationLinks = [
+    { name: t('new'), slug: 'new' },
+    { name: t('jewelry'), id: 'jewelry' },
+    { name: t('bestSellers'), slug: 'best-sellers' },
+    { name: t('collections'), id: 'collections' },
+    { name: t('gold14k'), id: 'gold' },
+    { name: t('gifts'), id: 'gifts' },
+    { name: t('lastChance'), slug: 'last-chance' },
+  ];
+
   return (
-    <footer className="bg-[#f0f0f0] pt-24 pb-12 px-6 border-t border-white/5" dir="rtl">
-      <div className="max-w-[1400px] mx-auto">
+    <footer className="bg-[#0D0D0D] pt-32 pb-10 px-6 border-t border-white/5" dir={isRtl ? "rtl" : "ltr"}>
+      <div className="max-w-full h-full relative mx-auto">
         
-        {/* סקשן ניוזלטר - מותאם לרקע כהה */}
-        <div className="flex flex-col items-center text-center mb-24">
-          <h3 className="text-[11px] uppercase tracking-[0.4em] text-[#ead690] mb-6">Stay Connected</h3>
-          <h2 className="text-3xl font-light italic mb-10 text-white">הצטרפי לעולם של Gutman</h2>
-          <form className="w-full max-w-md flex border-b border-white/20 pb-2 transition-all focus-within:border-[#ead690]">
+        {/* סקשן ניוזלטר */}
+        <div className="flex flex-col items-center text-center mb-32">
+          <span className="text-[10px] uppercase tracking-[0.6em] text-[#C5A25D] mb-8 block font-medium">
+            {t('stayConnected')}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extralight italic mb-12 text-white tracking-wide">
+            {t('newsletterTitle')}
+          </h2>
+          <form className="w-full max-w-lg flex border-b border-white/10 pb-4 transition-all focus-within:border-[#C5A25D]">
             <input 
               type="email" 
-              placeholder="כתובת האימייל שלך" 
-              className="bg-transparent flex-grow text-sm font-light outline-none py-2 px-4 text-white placeholder:text-gray-500"
+              placeholder={t('emailPlaceholder')} 
+              className="bg-white/20 flex-grow text-sm font-light outline-none py-2 px-0 text-white placeholder:text-white tracking-widest"
             />
-            <button className="text-[10px] uppercase tracking-[0.2em] font-medium px-4 text-[#ead690] hover:text-white transition-colors">
-              הצטרפות
+            <button className="text-[11px] uppercase tracking-[0.3em] font-semibold px-6 text-black bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] shadow-xl  transition-all duration-500">
+              {t('subscribe')}
             </button>
           </form>
         </div>
 
         {/* מבנה הקישורים */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 text-right">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           
-          {/* לוגו ותיאור קצר */}
-          <div className="col-span-1 md:col-span-1">
-            <h2 className="text-xl tracking-[0.2em] font-light mb-6 uppercase text-white">Gutman</h2>
-            <p className="text-gray-400 text-xs leading-relaxed font-light">
-              תכשיטי יוקרה בעיצוב אישי. כל פריט הוא סיפור של אמנות, רגש ודיוק חסר פשרות.
+          {/* לוגו ותיאור */}
+          <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
+            <div className="mb-8">
+              <img 
+                src="https://afhhrnpwfmtderonxfhl.supabase.co/storage/v1/object/public/logo/Gutman%20Jewelry.png" 
+                alt="Gutman Jewelry"
+                className="h-40 md:h-40 w-auto object-contain" 
+              />
+            </div>
+            <p className="text-neutral-500 text-[13px] leading-[1.8] font-light max-w-[240px]">
+              {t('aboutText')}
             </p>
           </div>
 
-          {/* ניווט */}
-          <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] font-medium mb-6 text-white">קולקציות</h4>
-            <ul className="space-y-4 text-gray-400 text-[13px] font-light">
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">טבעות אירוסין</li>
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">שרשראות יהלומים</li>
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">צמידי טניס</li>
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">קולקציית ערב</li>
+          {/* עמודת קולקציות - מערך דינמי */}
+          <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
+            <h4 className="text-[11px] uppercase tracking-[0.3em] font-bold mb-8 text-[#C5A25D] opacity-80">
+              {t('collections')}
+            </h4>
+            <ul className="space-y-4 text-neutral-400 text-[13px] font-light">
+              {navigationLinks.map((link, index) => (
+                <li 
+                  key={index} 
+                  className="hover:text-white cursor-pointer transition-colors duration-300"
+                >
+                  {link.name}
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* שירות לקוחות */}
-          <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] font-medium mb-6 text-white">שירות לקוחות</h4>
-            <ul className="space-y-4 text-gray-400 text-[13px] font-light">
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">משלוחים והחזרות</li>
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">מדריך מידות</li>
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">צור קשר</li>
-              <li className="hover:text-[#ead690] cursor-pointer transition-colors">שאלות נפוצות</li>
+          <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
+            <h4 className="text-[11px] uppercase tracking-[0.3em] font-bold mb-8 text-[#C5A25D] opacity-80">
+              {t('customerService')}
+            </h4>
+            <ul className="space-y-5 text-neutral-400 text-[13px] font-light">
+              <li className="hover:text-white cursor-pointer transition-colors duration-300">{t('serv1')}</li>
+              <li className="hover:text-white cursor-pointer transition-colors duration-300">{t('serv2')}</li>
+              <li className="hover:text-white cursor-pointer transition-colors duration-300">{t('serv3')}</li>
+              <li className="hover:text-white cursor-pointer transition-colors duration-300">{t('serv4')}</li>
             </ul>
           </div>
 
-          {/* אינסטגרם / סושיאל */}
-          <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] font-medium mb-6 text-white">עקבו אחרינו</h4>
-            <div className="flex gap-6 justify-start">
-              <span className="text-gray-400 hover:text-[#ead690] cursor-pointer text-sm">Instagram</span>
-              <span className="text-gray-400 hover:text-[#ead690] cursor-pointer text-sm">Facebook</span>
-              <span className="text-gray-400 hover:text-[#ead690] cursor-pointer text-sm">Pinterest</span>
+          {/* סושיאל */}
+          <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
+            <h4 className="text-[11px] uppercase tracking-[0.3em] font-bold mb-8 text-[#C5A25D] opacity-80">{t('followUs')}</h4>
+            <div className="flex flex-col gap-5 text-neutral-400 text-[13px] font-light">
+              <span className="hover:text-white cursor-pointer transition-all duration-300 tracking-[0.2em] text-[12px]">INSTAGRAM</span>
+              <span className="hover:text-white cursor-pointer transition-all duration-300 tracking-[0.2em] text-[12px]">FACEBOOK</span>
+              <span className="hover:text-white cursor-pointer transition-all duration-300 tracking-[0.2em] text-[12px]">PINTEREST</span>
             </div>
           </div>
         </div>
 
         {/* זכויות יוצרים */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] text-gray-500 tracking-widest uppercase">
-            © 2026 GUTMAN JEWELRY. ALL RIGHTS RESERVED.
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-[9px] text-white tracking-[0.3em] uppercase">
+            {t('rights')}
           </p>
-          <div className="flex gap-8">
-            <span className="text-[10px] text-gray-500 uppercase tracking-widest cursor-pointer hover:text-white transition-colors">תקנון האתר</span>
-            <span className="text-[10px] text-gray-500 uppercase tracking-widest cursor-pointer hover:text-white transition-colors">הצהרת נגישות</span>
+          <div className="flex gap-10">
+            <span className="text-[9px] text-white uppercase tracking-[0.2em] cursor-pointer hover:text-[#C5A25D] transition-colors">
+              {t('terms')}
+            </span>
+            <span className="text-[9px] text-white uppercase tracking-[0.2em] cursor-pointer hover:text-[#C5A25D] transition-colors">
+              {t('accessibility')}
+            </span>
           </div>
         </div>
       </div>

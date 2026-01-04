@@ -6,18 +6,18 @@ const ProductCard = ({ product }) => {
   if (!product) return null;
 
   return (
-    <div className="relative w-full h-full group overflow-hidden bg-neutral-200">
+    <div className="relative w-full h-full group overflow-hidden bg-white shadow-xl">
       {/* תמונה שממלאת את כל שטח הכרטיס */}
       <NextImage
         src={product.image_url || product.image || '/placeholder.jpg'}
-        alt={product.name || "Jewelry"}
+        alt={product.name || "bestsellers"}
         fill
         priority
         className="object-cover transition-transform duration-[2.5s] ease-out group-hover:scale-110"
       />
 
       {/* שכבת הצללה דקה כדי שהטקסט יבלוט */}
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-700" />
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-all duration-700" />
       
       {/* טקסט שצף על התמונה - נקי ויוקרתי */}
       <div className="absolute bottom-16 left-12 text-white z-20">
