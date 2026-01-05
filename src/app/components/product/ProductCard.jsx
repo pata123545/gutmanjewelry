@@ -14,6 +14,7 @@ const ProductCard = ({ product }) => {
         fill
         priority
         className="object-cover transition-transform duration-[2.5s] ease-out group-hover:scale-110"
+        onError={() => setImgSrc('/images/placeholder.jpg')}
       />
 
       {/* שכבת הצללה דקה כדי שהטקסט יבלוט */}
