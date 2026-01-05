@@ -1,4 +1,4 @@
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import Carousel from '../components/hero/Carousel';
 import FeaturedCollections from '../components/FeaturedCollections';
 import BestSellers from '../components/BestSellers';
