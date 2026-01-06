@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+
+
+/* מניעת גלילה רוחבית בכל האתר - קריטי למובייל */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+

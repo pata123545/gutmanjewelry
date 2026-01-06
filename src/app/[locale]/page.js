@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../../lib/supabase';
 import Carousel from '../components/hero/Carousel';
 import FeaturedCollections from '../components/FeaturedCollections';
 import BestSellers from '../components/BestSellers';
@@ -25,14 +25,14 @@ export default async function Home(props) {
   }
 
   return (
-    <main className="w-full mx-auto px-5 md:px-8 pt-[95px] pb-10 relative">
+    <main className="min-h-screen pb-20"> 
       <Carousel />
       <HeroSection />
       
       {/* New Arrivals עם הגנה למערך ריק */}
-      <section className="max-w-[1300px] bg-[#F9F9F9] mx-auto px-6 md:px-12 py-20">
+
         <NewArrivals products={products || []} />
-      </section>
+      
 
       <FeaturedCollections />
       

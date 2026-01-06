@@ -1,114 +1,112 @@
 "use client";
-import { useTranslations, useLocale } from 'next-intl';
-import NextImage from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
+import React, { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl'; // ייבוא התרגום
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import NextImage from 'next/image';
+import Link from 'next/link';
+import { Heart, ShoppingBag, Eye } from 'lucide-react';
+
+const LuxuryProductCard = ({ product, locale, t }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  
+  return (
+    <div className="relative w-full aspect-[3/4] group overflow-hidden shadow-md border border-neutral-100">
+      <div className="absolute inset-0 z-0">
+        <NextImage
+          src={product.image_url || product.image || '/placeholder.jpg'}
+          alt={product.title || "Jewelry"}
+          fill
+          sizes="(max-w-768px) 100vw, 25vw"
+          className="object-cover transition-transform duration-[3s] ease-out group-hover:scale-110"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-700 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80 z-10" />
+      
+      <button onClick={(e) => { e.preventDefault(); setIsFavorite(!isFavorite); }} className="absolute top-5 right-5 z-30 transform hover:scale-110">
+        <Heart size={24} className={isFavorite ? 'fill-[#BF953F] stroke-[#BF953F]' : 'stroke-white'} strokeWidth={1.5} />
+      </button>
+
+      <div className="absolute inset-x-0 bottom-0 p-6 z-20 text-white flex flex-col justify-end">
+        <div className="transform transition-all duration-500 group-hover:-translate-y-2">
+          <h3 className="text-[18px] md:text-[22px] tracking-[0.1em] font-extralight uppercase mb-1">{product.title}</h3>
+          <p className="text-[16px] font-light text-[#C5A25D]">₪{Number(product.price || 0).toLocaleString()}</p>
+        </div>
+        <div className="mt-6 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <button className="flex-[3] bg-[#BF953F] text-white py-3.5 text-[10px] tracking-[0.2em] uppercase font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
+            <ShoppingBag size={14} /> {t('addToBag') || 'ADD TO BAG'}
+          </button>
+          <Link href={`/${locale}/product/${product.id}`} className="flex-1 flex items-center justify-center h-12 border border-white/40 backdrop-blur-md hover:bg-white hover:text-black transition-all">
+            <Eye size={18} />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const NewArrivals = ({ products = [] }) => {
   const locale = useLocale();
-  const isRtl = locale === 'he';
-  const t = useTranslations('NewArrivals');
+  const t = useTranslations('NewArrivals'); // הפעלת התרגום לסקשן הזה
 
-  // פונקציית תרגום גמישה מאוד
-  const getTranslatedName = (product) => {
-    if (!product) return "";
+  const newProducts = products.filter(p => p.is_new === true);
 
-    // אפשרות 1: השדות הם name_en, name_ru וכו'
-    if (locale === 'en') return product.name_en || product.title_en || product.name || product.title;
-    if (locale === 'ru') return product.name_ru || product.title_ru || product.name || product.title;
-    
-    // אפשרות 2: השם הוא אובייקט בעצמו {he: "...", en: "..."}
-    if (typeof product.name === 'object') {
-      return product.name[locale] || product.name['he'];
-    }
-
-    return product.name || product.title;
-  };
+  if (newProducts.length === 0) return null;
 
   return (
-    <section 
-      className="relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] w-[1900px] overflow-hidden border-y border-neutral-100" 
-      dir={isRtl ? "rtl" : "ltr"}
-    >
-      {/* כותרת */}
-      <div className="py-24 text-center px-4">
-        <span className="text-[11px] tracking-[0.6em] text-[#C5A25D] uppercase mb-5 block font-medium">
-          {t('subtitle')}
-        </span>
-        <h2 className="text-3xl md:text-5xl font-extralight tracking-[0.15em] text-neutral-900 uppercase">
-          {t('title')}
-        </h2>
-        <div className="w-12 h-[1px] bg-[#C5A25D] mx-auto mt-10 opacity-50"></div>
-      </div>
-
-      <div className="relative w-full group">
-        <Swiper
-          key={locale} // חיוני! גורם לכל התוכן להשתנות ברגע שהשפה משתנה
-          modules={[Navigation, Autoplay]}
-          spaceBetween={0} 
-          slidesPerView={1}
-          loop={true}
-          navigation={{
-            nextEl: '.nav-next-full',
-            prevEl: '.nav-prev-full',
-          }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1440: { slidesPerView: 4 },
-          }}
-          className="w-full"
+    <section className="py-24 bg-white" dir={locale === 'he' ? "rtl" : "ltr"}>
+      <div className="max-w-[1800px] mx-auto px-4 md:px-16 relative">
+        <div className="flex flex-col items-center mb-16 text-center">
+          <span className="text-[10px] tracking-[0.6em] text-[#BF953F] uppercase mb-4 block font-medium">
+            {t('label') || 'NEW ARRIVALS'}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extralight tracking-[0.1em] text-black uppercase">
+            {t('title') || 'נחיתות אחרונות'}
+          </h2>
+          <div className="w-12 h-[1px] bg-[#BF953F] mx-auto mt-8 opacity-40"></div>
+        </div>
+        
+        <Swiper 
+          modules={[Navigation, Pagination, Autoplay]} 
+          spaceBetween={25} 
+          slidesPerView={1.2} 
+          navigation 
+          pagination={{ clickable: true }}
+          breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 }, 1440: { slidesPerView: 5 } }}
+          className="luxury-swiper !pb-20"
         >
-          {products.map((product) => (
-            <SwiperSlide key={product.id}>
-              <div className="relative aspect-[4/5] w-full overflow-hidden group/item cursor-pointer bg-[#F7F7F7]">
-                {/* תמונה עם Padding */}
-                <div className="relative w-full h-full p-12 transition-transform duration-[2s] ease-out group-hover/item:scale-110">
-                  <NextImage
-                    src={product.image_url}
-                    alt={getTranslatedName(product)}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                  />
-                </div>
-                
-                {/* טקסט מוצר */}
-                <div className={`absolute bottom-0 w-full p-10 z-10 ${isRtl ? 'text-right' : 'text-left'}`}>
-                  <h3 className="text-[12px] tracking-[0.25em] font-light uppercase mb-3 text-neutral-800">
-                    {getTranslatedName(product)}
-                  </h3>
-                  <p className="text-[13px] font-medium tracking-widest text-[#C5A25D]">
-                    {Number(product.price).toLocaleString()} {t('currency')}
-                  </p>
-                </div>
-
-                {/* כפתור Hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-all duration-700 z-20">
-                  <div className="bg-white/90 backdrop-blur-sm px-10 py-4 text-[10px] tracking-[0.5em] text-black uppercase font-semibold shadow-2xl">
-                    {t('shopNow')}
-                  </div>
-                </div>
-              </div>
+          {newProducts.map((p) => (
+            <SwiperSlide key={p.id}>
+              <LuxuryProductCard product={p} locale={locale} t={t} />
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* חיצים */}
-        <button className="nav-prev-full absolute left-10 top-1/2 -translate-y-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 text-neutral-400 hover:text-[#C5A25D]">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button className="nav-next-full absolute right-10 top-1/2 -translate-y-1/2 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 text-neutral-400 hover:text-[#C5A25D]">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
       </div>
+
+      <style jsx global>{`
+        .luxury-swiper .swiper-button-next,
+        .luxury-swiper .swiper-button-prev {
+          color: #000 !important;
+          background: rgba(255, 255, 255, 0.9);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          top: 50%;
+          transform: translateY(-50%) scale(0.7);
+          z-index: 40;
+        }
+        [dir='rtl'] .luxury-swiper .swiper-button-next { right: 10px; left: auto; }
+        [dir='rtl'] .luxury-swiper .swiper-button-prev { left: 10px; right: auto; }
+        
+        .luxury-swiper .swiper-pagination-bullet-active {
+          background: #BF953F !important;
+          width: 24px;
+          border-radius: 4px;
+        }
+      `}</style>
     </section>
   );
 };
