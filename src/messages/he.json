@@ -53,17 +53,16 @@
     }
   },
 "NewArrivals": {
-  "subtitle": "הקולקציה החדשה",
-  "title": "נחיתות אחרונות",
-  "currency": "₪",
-  "shopNow": "צפייה במוצר"
-},
+    "label": "NEW ARRIVALS",
+    "title": "נחיתות אחרונות",
+    "addToBag": "הוספה לסל"
+  },
 
- "BestSellers": {
-  "label": "הבחירה שלנו",
-  "title": "הנבחרים שלנו",
-  "currency": "₪"
-},
+"BestSellers": {
+    "label": "MOST LOVED",
+    "title": "הנבחרים שלנו",
+    "addToBag": "הוספה לסל"
+  },
 
 "VisitStore": {
   "title": "בקרו אותנו בחנות",
@@ -100,5 +99,9 @@
     "serv2": "משלוחים והחזרות",
     "serv3": "פגישה אישית",
     "serv4": "צור קשר"
+  },
+
+  "Navbar": {
+    "lastChance": "Last Chance"
   }
 }

@@ -53,17 +53,16 @@
     }
   },
 "NewArrivals": {
-  "subtitle": "Новая Коллекция",
-  "title": "Новинки",
-  "currency": "₪",
-  "shopNow": "Купить"
-},
+    "label": "НОВИНКИ",
+    "title": "Новые поступления",
+    "addToBag": "В КОРЗИНУ"
+  },
 
- "BestSellers": {
-  "label": "Наш выбор",
-  "title": "Бестселлеры",
-  "currency": "₪"
-},
+"BestSellers": {
+    "label": "ХИТЫ ПРОДАЖ",
+    "title": "Наш выбор",
+    "addToBag": "В КОРЗИНУ"
+  },
 
 "VisitStore": {
   "title": "Посетите наш магазин",
@@ -100,5 +99,9 @@
     "serv2": "Доставка и возврат",
     "serv3": "Частная встреча",
     "serv4": "Связаться с нами"
+  },
+
+  "Navbar": {
+    "lastChance": "Last Chance"
   }
 }

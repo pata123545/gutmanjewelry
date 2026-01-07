@@ -53,17 +53,16 @@
     }
   },
 "NewArrivals": {
-  "subtitle": "The New Collection",
-  "title": "New Arrivals",
-  "currency": "₪",
-  "shopNow": "Shop Now"
-},
+    "label": "NEW ARRIVALS",
+    "title": "New Arrivals",
+    "addToBag": "ADD TO BAG"
+  },
 
- "BestSellers": {
-  "label": "The Selection",
-  "title": "Best Sellers",
-  "currency": "₪"
-},
+"BestSellers": {
+    "label": "MOST LOVED",
+    "title": "Best Sellers",
+    "addToBag": "ADD TO BAG"
+  },
 
 "VisitStore": {
   "title": "Visit Us In Store",
@@ -100,6 +99,10 @@
     "serv2": "Shipping & Returns",
     "serv3": "Private Appointment",
     "serv4": "Contact Us"
+  },
+
+  "Navbar": {
+    "lastChance": "Last Chance"
   }
 }
 
